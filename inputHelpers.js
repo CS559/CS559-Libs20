@@ -115,7 +115,7 @@ export function makeOutbox(str, where, label) {
 
   let text = document.createElement("input");
   insertElement(text, where);
-  text.id = name + "-text";
+  text.id = safename + "-text";
   text.setAttribute("type", "text");
   text.style.width = "50px";
   text.setAttribute("readonly", "1");
@@ -214,6 +214,7 @@ export class LabelSlider {
    * @param {number} [params.initial = 0]
    * @param {function} [params.oninput]
    * @param {WhereSpec} [params.where]
+   * @param {string} [params.id]
    */
   constructor(name, params) {
     let min = params.min || 0;
@@ -223,10 +224,12 @@ export class LabelSlider {
 
     let width = params.width || 250;
 
+    let id = params.id || name;
+
     this.div = document.createElement("div");
 
     this.label = document.createElement("label");
-    this.label.setAttribute("for", name + "-text");
+    this.label.setAttribute("for", id + "-text");
     this.label.setAttribute(
       "style",
       "padding:5px; width:40px; display:inline-block;"
@@ -236,14 +239,14 @@ export class LabelSlider {
 
     this.text = document.createElement("input");
     this.div.appendChild(this.text);
-    this.text.id = name + "-text";
+    this.text.id = id + "-text";
     this.text.setAttribute("type", "text");
     this.text.setAttribute("style", "width:40px");
     this.text.setAttribute("readonly", "1");
 
     this.range = document.createElement("input");
     this.div.appendChild(this.range);
-    this.range.id = name + "-slider";
+    this.range.id = id + "-slider";
     this.range.setAttribute("type", "range");
     this.range.setAttribute("style", `width:${width - 120}px`);
     // give default values for range
