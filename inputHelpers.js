@@ -94,6 +94,9 @@ export function makeBoxDiv(params, where) {
   if (params.width)
     style += `; width:${Number(params.width) - 2 * params.margin}px`;
 
+  if (params.flex)
+    style += "; display: flex; flex-direction: row; flex-wrap:wrap";
+
   let div = document.createElement("div");
   div.setAttribute("style", style);
   insertElement(div, where);
@@ -101,7 +104,7 @@ export function makeBoxDiv(params, where) {
 }
 
 export function makeFlexDiv(where) {
-  let style = "display: flex; flex-direction: row;";
+  let style = "display: flex; flex-direction: row; flex-wrap:wrap";
   let div = document.createElement("div");
   div.setAttribute("style", style);
   insertElement(div, where);
@@ -152,8 +155,17 @@ export function makeSelect(values, where, initial) {
  */
 export function makeBreak(where) {
   let br = document.createElement("BR");
+  br.setAttribute("style","clear:both")
+
   insertElement(br, where);
   return br;
+}
+
+export function makeFlexBreak(where) {
+    let br = document.createElement("DIV");
+    br.setAttribute("style","flex-basis:100%; height:0px");
+    insertElement(br, where);
+    return br;
 }
 
 /**
