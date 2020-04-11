@@ -8,3 +8,10 @@ canvas {
 svg {
   border: 1px solid black;
 }
+
+div.answerbox {
+  border: 2px solid blue;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
