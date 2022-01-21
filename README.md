@@ -1,5 +1,7 @@
 # Library Sub-Directory for CS559 Workbooks
 
+**warning - this is the 2020 version of the library! it used to be called CS559-Libs**
+
 This directory contains files used by CS559 workbooks. It is included in workbooks.
 
 Students should not edit the files in this directory or add to them without explicit instructions from the course staff.
